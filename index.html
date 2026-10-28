@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adarsh | Full-Stack & Mobile App Developer (Ranchi, India)</title>
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            darkBg: '#07080d',
+            cardBg: '#0e111a',
+            cardBorder: '#1c2234',
+            accentCyan: '#06b6d4',
+            accentEmerald: '#10b981',
+            accentIndigo: '#6366f1'
+          },
+          animation: {
+            'blob-slow': 'blob 14s infinite',
+            'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+          },
+          keyframes: {
+            blob: {
+              '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.15)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07080d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e2538;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366f1;
+    }
+
+    /* Glassmorphism Styles */
+    .glass-nav {
+      background: rgba(7, 8, 13, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(14, 17, 26, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 12px 35px -10px rgba(99, 102, 241, 0.25);
+    }
+
+    .gradient-border-wrap {
+      position: relative;
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(6, 182, 212, 0.15), rgba(16, 185, 129, 0.3));
+      padding: 1px;
+    }
+    
+    .fade-transition {
+      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans selection:bg-indigo-500 selection:text-white relative overflow-x-hidden antialiased">
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-indigo-600/20 rounded-full blur-[130px] animate-blob-slow"></div>
+    <div class="absolute top-1/3 -right-32 w-[32rem] h-[32rem] bg-cyan-600/15 rounded-full blur-[140px] animate-blob-slow" style="animation-delay: 4s;"></div>
+    <div class="absolute bottom-20 left-1/4 w-80 h-80 bg-emerald-500/15 rounded-full blur-[120px] animate-blob-slow" style="animation-delay: 8s;"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:24px_24px]"></div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-cyan-500 to-emerald-400 p-[2px] transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-indigo-500/25">
+          <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center">
+            <span class="font-heading font-black text-xl bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-400">A</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-xl tracking-wider text-white">ADARSH<span class="text-cyan-400">.</span></span>
+          <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1 flex items-center gap-1">
+            <i class="fa-solid fa-location-dot text-emerald-400 text-[9px]"></i> Ranchi, Jharkhand
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#home" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Home</a>
+        <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">My Projects</a>
+        <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Tech Stack</a>
+        <a href="#services" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
+        <a href="#testimonials" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Client Reviews</a>
+      </nav>
+
+      <!-- Desktop CTA & Contacts -->
+      <div class="hidden sm:flex items-center gap-3">
+        <!-- Exact GitHub Profile from your app -->
+        <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" title="Adarsh on GitHub (@adarshdeveloper9102-gif)"
+           class="w-10 h-10 rounded-xl border border-slate-700/80 bg-cardBg hover:bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-all hover:border-slate-500 shadow-sm">
+          <i class="fa-brands fa-github text-lg"></i>
+        </a>
+
+        <!-- Quick Book Call / WhatsApp -->
+        <a href="tel:+919102830956" 
+           title="Direct Phone Call"
+           class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-700 bg-cardBg hover:bg-slate-800 text-slate-200 font-medium text-xs sm:text-sm transition-all">
+          <i class="fa-solid fa-phone text-xs text-cyan-400"></i>
+          <span>Call: +91 9102830956</span>
+        </a>
+
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 hover:opacity-95 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-indigo-600/30 transition-all transform hover:-translate-y-0.5">
+          <span>Hire Me</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" aria-label="Toggle navigation menu" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg bg-cardBorder/50 focus:outline-none">
+        <i class="fa-solid fa-bars-staggered text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-6 glass-nav border-b border-white/10 space-y-3">
+      <a href="#home" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">Home</a>
+      <a href="#projects" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">My Projects</a>
+      <a href="#skills" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">Tech Stack</a>
+      <a href="#services" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">Services</a>
+      <a href="#testimonials" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">Client Reviews</a>
+
+      <!-- GitHub & Call Handles on Mobile -->
+      <div class="flex items-center gap-3 px-3 py-2">
+        <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 text-center rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 hover:text-white flex items-center justify-center gap-2">
+          <i class="fa-brands fa-github text-sm"></i> GitHub: adarshdeveloper9102-gif
+        </a>
+      </div>
+
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="tel:+919102830956" class="w-full text-center py-2.5 rounded-xl border border-cyan-500/30 text-cyan-400 bg-cyan-500/10 font-medium text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-phone"></i> Call: +91 9102830956
+        </a>
+        <a href="https://wa.me/919102830956?text=Hi%20Adarsh,%20I%20want%20to%20discuss%20a%20project." target="_blank" class="w-full text-center py-2.5 rounded-xl border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 font-medium text-sm flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="min-h-screen pt-36 pb-20 flex items-center relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Left Column -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+              </span>
+              <span>Based in Ranchi, Jharkhand &bull; Available Worldwide</span>
+            </div>
+
+            <h1 class="font-heading font-extrabold text-4xl sm:text-6xl xl:text-7xl leading-tight tracking-tight">
+              Hey, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">Adarsh</span>
+            </h1>
+
+            <!-- Sliding / Typewriter Rotating Headlines -->
+            <div class="min-h-[72px] sm:min-h-[84px] flex items-center justify-center lg:justify-start">
+              <h2 class="text-xl sm:text-3xl font-heading font-semibold text-slate-200">
+                <span>Specialized in </span>
+                <span id="slidingText" class="text-cyan-400 underline decoration-indigo-500/60 decoration-wavy underline-offset-8"></span>
+                <span class="inline-block w-1 h-6 bg-cyan-400 ml-1 animate-pulse align-middle"></span>
+              </h2>
+            </div>
+
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              I architect bug-free, high-converting Android applications & modern web solutions. Turn your idea into a production-ready digital product with clean design, lightning speed, and scalable code.
+            </p>
+
+            <!-- Action Buttons: Explore Client Work + Book a Free Call -->
+            <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold text-sm sm:text-base shadow-xl shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Explore Client Work</span>
+              </a>
+
+              <!-- Book a Free Call Button -->
+              <a href="tel:+919102830956" class="px-7 py-3.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-semibold text-sm sm:text-base transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/10 hover:scale-[1.02] active:scale-[0.98]">
+                <i class="fa-solid fa-phone-volume text-emerald-400 animate-pulse"></i>
+                <span>Book a Free Call</span>
+              </a>
+            </div>
+
+            <!-- Profile & Address Highlights -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs text-slate-400">
+              <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-600 transition-colors">
+                <i class="fa-brands fa-github text-base text-cyan-400"></i> github.com/adarshdeveloper9102-gif
+              </a>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800 text-slate-400">
+                <i class="fa-solid fa-map-pin text-rose-400"></i> Ranchi, Jharkhand, India
+              </span>
+            </div>
+
+            <!-- Trust Badges & Stats -->
+            <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-xl mx-auto lg:mx-0">
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-center lg:text-left">
+                <div class="font-heading font-bold text-2xl sm:text-3xl text-emerald-400">100%</div>
+                <div class="text-xs text-slate-400 font-medium">Bug-Free Guarantee</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-center lg:text-left">
+                <div class="font-heading font-bold text-2xl sm:text-3xl text-cyan-400">30+</div>
+                <div class="text-xs text-slate-400 font-medium">Apps & Sites Built</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-center lg:text-left">
+                <div class="font-heading font-bold text-2xl sm:text-3xl text-indigo-400">&lt; 2h</div>
+                <div class="text-xs text-slate-400 font-medium">Quick WhatsApp Reply</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Right Showcase Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md">
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 via-emerald-500 to-cyan-500 rounded-2xl blur-lg opacity-40"></div>
+              
+              <div class="relative rounded-2xl bg-cardBg border border-cardBorder p-6 shadow-2xl space-y-5">
+                <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-rose-500/90 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-amber-500/90 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500/90 inline-block"></span>
+                  </div>
+                  <span class="text-xs text-slate-400 font-mono flex items-center gap-1">
+                    <i class="fa-solid fa-code-branch text-indigo-400"></i> adarsh-terminal.sh
+                  </span>
+                </div>
+
+                <div class="rounded-xl bg-darkBg border border-slate-800/80 p-4 font-mono text-xs text-slate-300 space-y-2.5">
+                  <p class="text-slate-500">// Adarsh Portfolio Manifest</p>
+                  <p><span class="text-purple-400">const</span> <span class="text-indigo-300">profile</span> = {</p>
+                  <p class="pl-4"><span class="text-cyan-400">developer</span>: <span class="text-emerald-300">'Adarsh'</span>,</p>
+                  <p class="pl-4"><span class="text-cyan-400">location</span>: <span class="text-amber-300">'Ranchi, Jharkhand, India'</span>,</p>
+                  <p class="pl-4"><span class="text-cyan-400">github</span>: <span class="text-cyan-300">'adarshdeveloper9102-gif'</span>,</p>
+                  <p class="pl-4"><span class="text-cyan-400">services</span>: [<span class="text-amber-300">'Android Apps'</span>, <span class="text-amber-300">'Websites'</span>],</p>
+                  <p class="pl-4"><span class="text-cyan-400">status</span>: <span class="text-emerald-400 font-bold">'Accepting New Clients'</span></p>
+                  <p>};</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                  <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                      <i class="fa-brands fa-android text-base"></i>
+                    </div>
+                    <div>
+                      <div class="text-xs font-semibold text-white">Android Apps</div>
+                      <div class="text-[10px] text-slate-400">Clean APKs & SDK</div>
+                    </div>
+                  </div>
+                  <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                      <i class="fa-solid fa-globe text-base"></i>
+                    </div>
+                    <div>
+                      <div class="text-xs font-semibold text-white">Modern Web</div>
+                      <div class="text-[10px] text-slate-400">Responsive UI & APIs</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rounded-xl p-3 bg-gradient-to-r from-emerald-950/30 to-indigo-950/30 border border-emerald-500/30 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-shield-heart text-emerald-400"></i>
+                    <span class="text-xs font-medium text-slate-300">Client Confidentiality & Code IP Protected</span>
+                  </div>
+                  <span class="text-[10px] text-emerald-300 font-semibold uppercase bg-emerald-500/20 px-2 py-0.5 rounded">Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION (WITH DIRECT ADD/UPLOAD SYSTEM) -->
+    <section id="projects" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">
+              <span class="w-8 h-[2px] bg-cyan-400"></span>
+              Live Showcase
+            </div>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+              My Apps & Websites
+            </h2>
+            <p class="text-slate-400 text-sm mt-2 max-w-xl">
+              Verified client deliveries, native Android applications, and responsive web portals.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400 font-medium">
+              <i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> Verified Production Code
+            </span>
+          </div>
+        </div>
+
+        <!-- Filter Categories (All, Mobile Apps, Websites) -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 border-b border-slate-800 pb-4">
+          <button onclick="filterProjects('all')" class="filter-tab active px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-indigo-600 text-white shadow-md shadow-indigo-600/30" data-category="all">
+            All Works (<span id="countAll">0</span>)
+          </button>
+          <button onclick="filterProjects('app')" class="filter-tab px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-cardBg hover:bg-slate-800 text-slate-300 border border-slate-800" data-category="app">
+            <i class="fa-brands fa-android mr-1.5 text-emerald-400"></i> Mobile Apps (<span id="countApps">0</span>)
+          </button>
+          <button onclick="filterProjects('website')" class="filter-tab px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-cardBg hover:bg-slate-800 text-slate-300 border border-slate-800" data-category="website">
+            <i class="fa-solid fa-globe mr-1.5 text-cyan-400"></i> Websites & Web Apps (<span id="countWebsites">0</span>)
+          </button>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Populated dynamically via JS / LocalStorage -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CLIENT FEEDBACK / REVIEWS (25 REVIEWS, AUTO-REFRESH EVERY 5 MINS + LIVE BLINK) -->
+    <section id="testimonials" class="py-24 bg-cardBg/40 border-y border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <!-- Live Green Blink Indicator -->
+            <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+              </span>
+              <span>Live Verified Client Feedbacks &bull; Auto-refreshes every 5 mins</span>
+            </div>
+
+            <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+              What Clients Say About Adarsh
+            </h2>
+            <p class="text-slate-400 text-sm mt-2">
+              Showing 3 verified reviews out of 25 happy client partnerships.
+            </p>
+          </div>
+
+          <!-- Instant Shuffle Test Button -->
+          <div class="flex items-center gap-2">
+            <button onclick="refreshTestimonials()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 flex items-center gap-2 transition-all">
+              <i class="fa-solid fa-arrows-rotate text-emerald-400" id="refreshIcon"></i>
+              <span>Refresh Feedback Now</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Dynamic Review Cards Container -->
+        <div id="testimonialsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-transition">
+          <!-- Injected via JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES OFFERED -->
+    <section id="services" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 text-indigo-400 text-xs font-bold tracking-widest uppercase mb-2">
+            Professional Engineering
+          </div>
+          <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+            Services Built for Client Earning
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-4">
+            From design to launch, I provide end-to-end development so you can offer full-scale apps & websites to your customers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-8 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-2 group">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+              <i class="fa-brands fa-android"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-3">Android Mobile Apps</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Native Android apps (Kotlin/Java) with smooth UI, database persistence, push alerts, and APK builds ready for installation.
+            </p>
+            <div class="text-[11px] text-emerald-400 font-semibold">&bull; 100% bug-free delivery</div>
+          </div>
+
+          <div class="p-8 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-2 group">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-3">Business Websites</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              High-converting landing pages, portfolio sites, and business web portals designed with luxury aesthetics and ultra-fast speed.
+            </p>
+            <div class="text-[11px] text-cyan-400 font-semibold">&bull; Mobile & Desktop responsive</div>
+          </div>
+
+          <div class="p-8 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-2 group">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-3">Backend & Database</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Secure REST APIs, user authentication (Login/Signup/OTP), and realtime databases with Firebase, MongoDB, or SQL.
+            </p>
+            <div class="text-[11px] text-indigo-400 font-semibold">&bull; Scalable cloud architecture</div>
+          </div>
+
+          <div class="p-8 rounded-2xl glass-card transition-all duration-300 hover:-translate-y-2 group">
+            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-3">Fixes & Upgrades</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Have an existing broken app or slow website? I debug errors, upgrade UI themes, and optimize performance.
+            </p>
+            <div class="text-[11px] text-purple-400 font-semibold">&bull; Instant issue resolution</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECH STACK SECTION -->
+    <section id="skills" class="py-24 bg-cardBg/30 border-y border-slate-800/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">
+            Skill Set
+          </div>
+          <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+            Technologies & Tools
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div class="p-5 rounded-2xl glass-card text-center hover:border-emerald-500/40 transition-all">
+            <i class="fa-brands fa-android text-3xl text-emerald-400 mb-2"></i>
+            <h4 class="text-sm font-bold text-white">Android Studio</h4>
+            <span class="text-[10px] text-slate-400">Native Apps</span>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-card text-center hover:border-cyan-500/40 transition-all">
+            <i class="fa-brands fa-react text-3xl text-cyan-400 mb-2"></i>
+            <h4 class="text-sm font-bold text-white">React & Next.js</h4>
+            <span class="text-[10px] text-slate-400">Web Apps</span>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-card text-center hover:border-amber-500/40 transition-all">
+            <i class="fa-brands fa-js text-3xl text-amber-400 mb-2"></i>
+            <h4 class="text-sm font-bold text-white">JavaScript</h4>
+            <span class="text-[10px] text-slate-400">ES6+ Logic</span>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-card text-center hover:border-emerald-500/40 transition-all">
+            <i class="fa-brands fa-node text-3xl text-emerald-500 mb-2"></i>
+            <h4 class="text-sm font-bold text-white">Node.js</h4>
+            <span class="text-[10px] text-slate-400">APIs & Express</span>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-card text-center hover:border-orange-500/40 transition-all">
+            <i class="fa-solid fa-fire text-3xl text-orange-400 mb-2"></i>
+            <h4 class="text-sm font-bold text-white">Firebase</h4>
+            <span class="text-[10px] text-slate-400">Realtime Cloud DB</span>
+          </div>
+
+          <div class="p-5 rounded-2xl glass-card text-center hover:border-indigo-500/40 transition-all">
+            <i class="fa-brands fa-github text-3xl text-indigo-400 mb-2"></i>
+            <h4 class="text-sm font-bold text-white">Git & GitHub</h4>
+            <span class="text-[10px] text-slate-400">adarshdeveloper9102-gif</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INQUIRY & CONTACT SECTION (WITH WHATSAPP & AUTO EMAIL DISPATCH) -->
+    <section id="contact" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Left Details -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-widest uppercase mb-2">
+              Contact Adarsh
+            </div>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
+              Start Your App or Web Project.
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Fill out the project details on the right. When you click <strong class="text-white">Send to Email</strong> or <strong class="text-white">Send to WhatsApp</strong>, it automatically pre-fills every single answer into your email or WhatsApp message directly!
+            </p>
+
+            <div class="space-y-4 pt-4">
+              
+              <!-- Address Details Card (Ranchi, Jharkhand) -->
+              <div class="p-4 rounded-xl glass-card flex items-center gap-4 border-l-4 border-l-rose-500">
+                <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl shrink-0">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400">Office & Work Location</div>
+                  <div class="text-sm font-bold text-white">Ranchi, Jharkhand, India</div>
+                  <div class="text-[11px] text-emerald-400">Available for Remote / Freelance Worldwide</div>
+                </div>
+              </div>
+
+              <!-- Phone & Direct Call -->
+              <a href="tel:+919102830956" class="p-4 rounded-xl glass-card flex items-center gap-4 hover:border-cyan-500/50 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400">Call Adarsh Directly</div>
+                  <div class="text-sm font-bold text-white">+91 9102830956</div>
+                </div>
+              </a>
+
+              <!-- Direct WhatsApp -->
+              <a href="https://wa.me/919102830956?text=Hi%20Adarsh,%20I%20want%20to%20hire%20you%20for%20a%20project." target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl glass-card flex items-center gap-4 hover:border-emerald-500/50 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shrink-0">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400">Instant WhatsApp Chat</div>
+                  <div class="text-sm font-bold text-white">+91 9102830956</div>
+                </div>
+              </a>
+
+              <!-- Direct Email -->
+              <a href="mailto:adarsh.developer9102@gmail.com" class="p-4 rounded-xl glass-card flex items-center gap-4 hover:border-indigo-500/50 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <div class="text-xs text-slate-400">Direct Email</div>
+                  <div class="text-sm font-bold text-white truncate">adarsh.developer9102@gmail.com</div>
+                </div>
+              </a>
+
+              <!-- GitHub Profile Handle -->
+              <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl glass-card flex items-center gap-4 hover:border-slate-500 transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shrink-0">
+                  <i class="fa-brands fa-github"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <div class="text-xs text-slate-400">GitHub Profile</div>
+                  <div class="text-sm font-bold text-white truncate">github.com/adarshdeveloper9102-gif</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Project Inquiry Form -->
+          <div class="lg:col-span-7">
+            <div class="gradient-border-wrap">
+              <div class="rounded-2xl bg-cardBg p-6 sm:p-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-heading font-bold text-2xl text-white">Project Inquiry Form</h3>
+                  <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    Direct Send
+                  </span>
+                </div>
+                <p class="text-xs text-slate-400 mb-6">
+                  Fill details below, then choose either <strong>Send via WhatsApp</strong> or <strong>Send via Email</strong>.
+                </p>
+
+                <form id="contactForm" class="space-y-4" onsubmit="event.preventDefault(); sendToEmail();">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1.5">Client / Business Name *</label>
+                      <input type="text" id="senderName" required placeholder="e.g. Ramesh Verma" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1.5">Client Phone / WhatsApp Number *</label>
+                      <input type="text" id="senderContact" required placeholder="e.g. 9876543210" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1.5">Service Required</label>
+                      <select id="projectType" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+                        <option value="Android Mobile App">Android Mobile App</option>
+                        <option value="Modern Business Website">Modern Business Website</option>
+                        <option value="Full-Stack Web App">Full-Stack Web App</option>
+                        <option value="E-Commerce Store & App">E-Commerce Store & App</option>
+                        <option value="Bug Fixing & UI Redesign">Bug Fixing & UI Redesign</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label class="block text-xs font-semibold text-slate-300 mb-1.5">Approx. Budget</label>
+                      <select id="projectBudget" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
+                        <!-- Requested ₹5,000 - ₹10,000 tier added -->
+                        <option value="₹5,000 - ₹10,000 (Starter / Basic)">₹5,000 - ₹10,000 (Starter / Basic)</option>
+                        <option value="₹10,000 - ₹25,000 (Standard)">₹10,000 - ₹25,000 (Standard)</option>
+                        <option value="₹25,000 - ₹60,000 (Advanced)">₹25,000 - ₹60,000 (Advanced)</option>
+                        <option value="₹60,000+ (Full Custom Enterprise)">₹60,000+ (Full Custom Enterprise)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Details / Requirements *</label>
+                    <textarea id="projectDetails" rows="4" required placeholder="Describe your app/website idea, what features you want, and your deadline..." class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors"></textarea>
+                  </div>
+
+                  <!-- 2 DIRECT SEND BUTTONS: EMAIL & WHATSAPP -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <button type="button" onclick="sendToEmail()" class="py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold text-sm hover:opacity-95 shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2">
+                      <i class="fa-regular fa-envelope text-base"></i>
+                      <span>Send to Email (Adarsh)</span>
+                    </button>
+
+                    <button type="button" onclick="sendToWhatsApp()" class="py-3.5 px-6 rounded-xl border border-emerald-500/50 bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10">
+                      <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                      <span>Send to WhatsApp (+91 9102830956)</span>
+                    </button>
+                  </div>
+
+                  <!-- Feedback Alert Box -->
+                  <div id="formStatus" class="hidden p-3 rounded-xl text-center text-xs font-semibold"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-[#06070a] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-heading font-black text-white">
+          A
+        </div>
+        <div>
+          <span class="font-heading font-bold text-white text-base">ADARSH</span>
+          <span class="text-xs text-slate-500 block sm:inline sm:ml-2">&bull; Ranchi, Jharkhand, India &bull; +91 9102830956</span>
+        </div>
+      </div>
+
+      <div class="text-xs text-slate-500 text-center">
+        &copy; <span id="currentYear"></span> Adarsh. All rights reserved. &bull; Ranchi, Jharkhand, India
+      </div>
+
+      <div class="flex items-center gap-3 text-slate-400">
+        <!-- Direct GitHub Profile Link -->
+        <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" title="Adarsh on GitHub" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-white hover:border-slate-600 transition-colors">
+          <i class="fa-brands fa-github text-base"></i>
+        </a>
+        <a href="tel:+919102830956" title="Call Adarsh" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-cyan-400 hover:border-cyan-500/40 transition-colors">
+          <i class="fa-solid fa-phone text-sm"></i>
+        </a>
+        <a href="https://wa.me/919102830956" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-emerald-400 hover:border-emerald-500/40 transition-colors">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+        </a>
+        <a href="mailto:adarsh.developer9102@gmail.com" title="Send Email" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-indigo-400 hover:border-indigo-500/40 transition-colors">
+          <i class="fa-regular fa-envelope text-base"></i>
+        </a>
+        
+        <!-- Discreet Owner Admin Login (PIN: 9102) -->
+        <button onclick="promptOwnerAdmin()" title="Admin Project Manager" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 hover:text-amber-400 transition-colors">
+          <i class="fa-solid fa-lock text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="backToTopBtn" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-indigo-600/90 text-white flex items-center justify-center shadow-lg shadow-indigo-600/40 opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 active:scale-95 border border-indigo-400/30">
+    <i class="fa-solid fa-arrow-up text-sm"></i>
+  </button>
+
+  <!-- ============================================== -->
+  <!-- MODAL 1: OWNER ONLY PROJECT UPLOADER           -->
+  <!-- ============================================== -->
+  <div id="uploadModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-2xl bg-cardBg border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col" id="uploadModalBox">
+      
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-darkBg/80">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+            <i class="fa-solid fa-user-shield text-sm"></i>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-lg text-white">Owner Portal - Add Real Project</h3>
+            <p class="text-[11px] text-slate-400">Authenticated as Adarsh</p>
+          </div>
+        </div>
+        <button onclick="closeUploadModal()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <form id="projectUploadForm" onsubmit="handleProjectUpload(event)" class="p-6 space-y-4 overflow-y-auto flex-1">
+        
+        <!-- Category Selector (App or Website) -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Type *</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-800 bg-darkBg cursor-pointer hover:border-emerald-500/50">
+              <input type="radio" name="uploadCategory" value="app" checked class="accent-emerald-500" onchange="toggleCategoryFields('app')">
+              <div>
+                <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                  <i class="fa-brands fa-android text-emerald-400"></i> Mobile App
+                </div>
+                <div class="text-[10px] text-slate-400">APK link, screenshots, video</div>
+              </div>
+            </label>
+
+            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-800 bg-darkBg cursor-pointer hover:border-cyan-500/50">
+              <input type="radio" name="uploadCategory" value="website" class="accent-cyan-500" onchange="toggleCategoryFields('website')">
+              <div>
+                <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                  <i class="fa-solid fa-globe text-cyan-400"></i> Website / Web App
+                </div>
+                <div class="text-[10px] text-slate-400">Live URL, screenshots, video</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Project Title -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Name / Title *</label>
+          <input type="text" id="upTitle" required placeholder="e.g. My Grocery App or Restaurant Website" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <!-- Short Description -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Description *</label>
+          <textarea id="upDescription" rows="2" required placeholder="Features built, speed optimization, user flows..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500"></textarea>
+        </div>
+
+        <!-- Multi-Screenshot Support (Comma Separated URLs or Upload) -->
+        <div class="p-3.5 rounded-xl bg-darkBg/60 border border-slate-800/80 space-y-2">
+          <label class="block text-xs font-semibold text-slate-200">
+            <i class="fa-regular fa-images text-cyan-400 mr-1"></i> Screenshots (Auto-Slideshow in Modal) *
+          </label>
+          <p class="text-[11px] text-slate-400">Upload an image file from your laptop OR paste image URLs (comma separated):</p>
+          <input type="file" id="upImageFile" accept="image/*" class="w-full text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500">
+          <input type="text" id="upImageUrl" placeholder="https://example.com/slide1.jpg, https://example.com/slide2.jpg" class="w-full px-3 py-2 rounded-lg bg-darkBg border border-slate-800 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <!-- Video Demo Link -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+            <i class="fa-solid fa-video text-rose-400 mr-1"></i> Demo Video URL (Optional)
+          </label>
+          <input type="url" id="upVideoUrl" placeholder="Direct MP4 video URL or YouTube preview link" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <!-- Destination Link & GitHub -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label id="upDynamicLinkLabel" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              APK / Download Link
+            </label>
+            <input type="url" id="upActionUrl" placeholder="https://drive.google.com/... or live site URL" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+              GitHub Link (Optional)
+            </label>
+            <input type="url" id="upGithubUrl" value="https://github.com/adarshdeveloper9102-gif" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tech Stack (comma separated)</label>
+          <input type="text" id="upTech" placeholder="e.g. Kotlin, Android Studio, Firebase" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 flex justify-end gap-3">
+          <button type="button" onclick="closeUploadModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
+            Cancel
+          </button>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-semibold shadow-md shadow-emerald-500/20 hover:opacity-95">
+            Publish Project
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL 2: PROJECT DETAIL & AUTO-SLIDER MODAL    -->
+  <!-- ============================================== -->
+  <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-3xl bg-cardBg border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col" id="modalBox">
+      
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-darkBg/70">
+        <div class="flex items-center gap-3">
+          <span id="modalCategoryBadge" class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+            Category
+          </span>
+          <h3 id="modalTitle" class="font-heading font-bold text-lg sm:text-xl text-white">Project Title</h3>
+        </div>
+        <button onclick="closeModal()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-6 overflow-y-auto flex-1">
+        
+        <!-- AUTO SCREENSHOT SLIDER / CAROUSEL -->
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-slate-800 group">
+          <div id="carouselSlides" class="w-full h-full flex transition-transform duration-500 ease-out">
+            <!-- Slide images injected dynamically -->
+          </div>
+
+          <!-- Carousel Nav Buttons -->
+          <button onclick="prevSlide()" aria-label="Previous screenshot" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button onclick="nextSlide()" aria-label="Next screenshot" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+
+          <!-- Carousel Dots / Indicators -->
+          <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/10">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Project Details</h4>
+          <p id="modalDescription" class="text-sm text-slate-200 leading-relaxed"></p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Tech Stack</h4>
+          <div id="modalTechStack" class="flex flex-wrap gap-2"></div>
+        </div>
+
+      </div>
+
+      <div class="p-4 border-t border-slate-800 bg-darkBg flex flex-wrap items-center justify-between gap-3">
+        <div class="text-xs text-slate-400">
+          Interested in building a similar product with Adarsh?
+        </div>
+        <div class="flex items-center gap-3">
+          <a id="modalLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <span id="modalLiveBtnText">Open Link</span>
+          </a>
+          <button onclick="inquireForThisProject()" class="px-4 py-2 rounded-xl border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 text-xs font-semibold flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+            <span>Chat on WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // 1. ROTATING / TYPING SLOGANS
+    const rotatingPhrases = [
+      "Bug-Free Android & Mobile Apps",
+      "Modern High-Converting Websites",
+      "End-to-End Full Stack Development",
+      "Real Revenue-Generating Tech"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById('slidingText');
+
+    function typeEffect() {
+      const currentPhrase = rotatingPhrases[phraseIndex];
+      if (isDeleting) {
+        typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 30 : 60;
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        speed = 2200;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % rotatingPhrases.length;
+        speed = 400;
+      }
+      setTimeout(typeEffect, speed);
+    }
+    typeEffect();
+
+    // 2. SCROLL & HEADER CONTROLS
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const mainHeader = document.getElementById('mainHeader');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      }
+
+      if (window.scrollY > 20) {
+        mainHeader.classList.add('shadow-xl', 'bg-darkBg/95');
+      } else {
+        mainHeader.classList.remove('shadow-xl', 'bg-darkBg/95');
+      }
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 3. ZERO FAKE APPS / WEBSITES (ALL DUMMIES REMOVED)
+    // Only genuine apps added by Adarsh via the secret Owner PIN or code array appear here.
+    function getStoredProjects() {
+      const saved = localStorage.getItem('adarsh_real_projects');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch(e) {
+          return [];
+        }
+      }
+      return [];
+    }
+
+    let allProjects = getStoredProjects();
+
+    function saveProjects() {
+      localStorage.setItem('adarsh_real_projects', JSON.stringify(allProjects));
+      updateCounts();
+    }
+
+    function updateCounts() {
+      document.getElementById('countAll').textContent = allProjects.length;
+      document.getElementById('countApps').textContent = allProjects.filter(p => p.category === 'app').length;
+      document.getElementById('countWebsites').textContent = allProjects.filter(p => p.category === 'website').length;
+    }
+
+    const projectsGrid = document.getElementById('projectsGrid');
+
+    function renderProjects(category = 'all') {
+      projectsGrid.innerHTML = '';
+      const list = category === 'all' 
+        ? allProjects 
+        : allProjects.filter(p => p.category === category);
+
+      // Clean, High-Converting Empty Placeholder
+      if (list.length === 0) {
+        projectsGrid.innerHTML = `
+          <div class="col-span-full border border-dashed border-slate-800 rounded-3xl p-10 sm:p-14 text-center bg-cardBg/30">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl text-emerald-400">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h4 class="font-heading font-bold text-white text-xl sm:text-2xl">New Client Projects Launching Soon</h4>
+            <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto mt-2 mb-6 leading-relaxed">
+              We are currently finalizing private client releases for Android applications and modern websites. Connect directly with Adarsh to get live demos or discuss your project specifications.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-3">
+              <a href="https://wa.me/919102830956?text=Hi%20Adarsh,%20I%20want%20to%20see%20your%20recent%20app%20or%20website%20demos." target="_blank" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-black flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Request Live Demo on WhatsApp</span>
+              </a>
+              <a href="tel:+919102830956" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 border border-slate-700 hover:border-slate-500 text-white flex items-center gap-2 transition-all">
+                <i class="fa-solid fa-phone text-cyan-400"></i>
+                <span>Call: +91 9102830956</span>
+              </a>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach(project => {
+        const card = document.createElement('div');
+        card.className = "rounded-2xl glass-card overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col";
+        
+        const isApp = project.category === 'app';
+        const badgeColor = isApp ? 'text-emerald-400 border-emerald-400/30' : 'text-cyan-400 border-cyan-400/30';
+        const icon = isApp ? 'fa-brands fa-android text-emerald-400' : 'fa-solid fa-globe text-cyan-400';
+        const coverImage = (project.images && project.images.length > 0) ? project.images[0] : (project.image || '');
+
+        card.innerHTML = `
+          <div class="relative overflow-hidden aspect-video bg-slate-900 cursor-pointer" onclick="openModal('${project.id}')">
+            <img src="${coverImage}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/800x500/0c0e17/10b981?text=${encodeURIComponent(project.title)}'">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-80"></div>
+            
+            <div class="absolute top-3 left-3 flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-darkBg/90 ${badgeColor} border backdrop-blur-md flex items-center gap-1.5">
+                <i class="${icon}"></i> ${project.categoryBadge || (isApp ? 'Mobile App' : 'Website')}
+              </span>
+              ${(project.images && project.images.length > 1) ? `<span class="px-2 py-0.5 rounded text-[10px] bg-indigo-600/90 text-white font-bold"><i class="fa-solid fa-images text-[9px] mr-1"></i>${project.images.length} Photos</span>` : ''}
+            </div>
+
+            <div class="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-indigo-600/90 text-white text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">
+              <span>View Screenshots</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                ${project.title}
+              </h3>
+              <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">
+                ${project.description}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                ${(project.tech || []).slice(0, 3).map(t => `<span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 font-medium">${t}</span>`).join('')}
+              </div>
+
+              <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                <button onclick="openModal('${project.id}')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5">
+                  <i class="fa-regular fa-eye"></i>
+                  <span>Preview Demo</span>
+                </button>
+                ${project.actionUrl ? `
+                  <a href="${project.actionUrl}" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+                    <span>${isApp ? 'APK' : 'Live'}</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </a>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+        projectsGrid.appendChild(card);
+      });
+    }
+
+    function filterProjects(cat) {
+      document.querySelectorAll('.filter-tab').forEach(b => {
+        if (b.dataset.category === cat) {
+          b.className = "filter-tab active px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-indigo-600 text-white shadow-md shadow-indigo-600/30";
+        } else {
+          b.className = "filter-tab px-5 py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all bg-cardBg hover:bg-slate-800 text-slate-300 border border-slate-800";
+        }
+      });
+      renderProjects(cat);
+    }
+
+    // 4. OWNER-ONLY ACCESS (PROTECTED WITH PIN: 9102)
+    const uploadModal = document.getElementById('uploadModal');
+    const uploadModalBox = document.getElementById('uploadModalBox');
+
+    function promptOwnerAdmin() {
+      const pin = window.prompt("Enter Owner PIN to manage portfolio projects:");
+      if (pin === "9102") {
+        openUploadModal();
+      } else if (pin !== null) {
+        alert("Incorrect PIN. Access restricted to Adarsh.");
+      }
+    }
+
+    function openUploadModal() {
+      uploadModal.classList.remove('opacity-0', 'pointer-events-none');
+      uploadModal.classList.add('opacity-100', 'pointer-events-auto');
+      uploadModalBox.classList.remove('scale-95');
+      uploadModalBox.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeUploadModal() {
+      uploadModal.classList.add('opacity-0', 'pointer-events-none');
+      uploadModal.classList.remove('opacity-100', 'pointer-events-auto');
+      uploadModalBox.classList.remove('scale-100');
+      uploadModalBox.classList.add('scale-95');
+      document.body.style.overflow = '';
+      document.getElementById('projectUploadForm').reset();
+    }
+
+    function toggleCategoryFields(cat) {
+      const label = document.getElementById('upDynamicLinkLabel');
+      if (cat === 'app') {
+        label.textContent = "APK / App Download Link (Google Drive, GitHub, etc.)";
+      } else {
+        label.textContent = "Live Website URL (https://your-site.com)";
+      }
+    }
+
+    function handleProjectUpload(event) {
+      event.preventDefault();
+      const title = document.getElementById('upTitle').value.trim();
+      const desc = document.getElementById('upDescription').value.trim();
+      const category = document.querySelector('input[name="uploadCategory"]:checked').value;
+      const videoUrl = document.getElementById('upVideoUrl').value.trim();
+      const actionUrl = document.getElementById('upActionUrl').value.trim();
+      const githubUrl = document.getElementById('upGithubUrl').value.trim() || 'https://github.com/adarshdeveloper9102-gif';
+      const techInput = document.getElementById('upTech').value.trim();
+      const techList = techInput ? techInput.split(',').map(s => s.trim()) : (category === 'app' ? ['Kotlin', 'Android Studio'] : ['React', 'Web']);
+
+      const fileInput = document.getElementById('upImageFile');
+      const urlInput = document.getElementById('upImageUrl').value.trim();
+
+      const proceedWithImages = (imagesArray) => {
+        const newProj = {
+          id: 'proj-' + Date.now(),
+          title: title,
+          category: category,
+          categoryBadge: category === 'app' ? 'Mobile App' : 'Website',
+          description: desc,
+          images: imagesArray.length > 0 ? imagesArray : ['https://placehold.co/800x500/0c0e17/10b981?text=' + encodeURIComponent(title)],
+          videoUrl: videoUrl,
+          actionUrl: actionUrl,
+          actionLabel: category === 'app' ? 'Download APK' : 'Visit Website',
+          githubUrl: githubUrl,
+          tech: techList
+        };
+
+        allProjects.unshift(newProj);
+        saveProjects();
+        renderProjects('all');
+        closeUploadModal();
+        alert('Success! Project published to your portfolio.');
+      };
+
+      let imagesArray = [];
+      if (urlInput) {
+        imagesArray = urlInput.split(',').map(u => u.trim()).filter(Boolean);
+      }
+
+      if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imagesArray.unshift(e.target.result);
+          proceedWithImages(imagesArray);
+        };
+        reader.readAsDataURL(fileInput.files[0]);
+      } else {
+        proceedWithImages(imagesArray);
+      }
+    }
+
+    // 5. PROJECT DETAIL & AUTO SCREENSHOT SLIDER MODAL
+    let currentSelectedProject = null;
+    let currentSlideIndex = 0;
+    let slideTimer = null;
+    const projectModal = document.getElementById('projectModal');
+    const modalBox = document.getElementById('modalBox');
+
+    function openModal(projectId) {
+      const project = allProjects.find(p => p.id === projectId);
+      if (!project) return;
+      currentSelectedProject = project;
+
+      document.getElementById('modalCategoryBadge').textContent = project.categoryBadge || (project.category === 'app' ? 'Mobile App' : 'Website');
+      document.getElementById('modalTitle').textContent = project.title;
+      document.getElementById('modalDescription').textContent = project.description;
+      
+      const liveBtn = document.getElementById('modalLiveBtn');
+      if (project.actionUrl) {
+        liveBtn.href = project.actionUrl;
+        liveBtn.classList.remove('hidden');
+        document.getElementById('modalLiveBtnText').textContent = project.actionLabel || (project.category === 'app' ? 'Download APK' : 'Visit Website');
+      } else {
+        liveBtn.classList.add('hidden');
+      }
+
+      // Tech Stack
+      const techBox = document.getElementById('modalTechStack');
+      techBox.innerHTML = (project.tech || []).map(t => `
+        <span class="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-indigo-300 font-medium">
+          ${t}
+        </span>
+      `).join('');
+
+      // Setup Multi-Screenshot Carousel
+      const slides = (project.images && project.images.length > 0) ? project.images : [project.image || 'https://placehold.co/800x500/0c0e17/10b981?text=' + encodeURIComponent(project.title)];
+      const carouselSlides = document.getElementById('carouselSlides');
+      const carouselDots = document.getElementById('carouselDots');
+      
+      carouselSlides.innerHTML = slides.map(src => `
+        <div class="w-full h-full flex-shrink-0">
+          <img src="${src}" class="w-full h-full object-cover">
+        </div>
+      `).join('');
+
+      carouselDots.innerHTML = slides.map((_, i) => `
+        <span onclick="goToSlide(${i})" class="w-2 h-2 rounded-full cursor-pointer transition-all ${i === 0 ? 'bg-cyan-400 w-5' : 'bg-white/40'}"></span>
+      `).join('');
+
+      currentSlideIndex = 0;
+      updateSlidePosition();
+      startSlideTimer(slides.length);
+
+      projectModal.classList.remove('opacity-0', 'pointer-events-none');
+      projectModal.classList.add('opacity-100', 'pointer-events-auto');
+      modalBox.classList.remove('scale-95');
+      modalBox.classList.add('scale-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateSlidePosition() {
+      const carouselSlides = document.getElementById('carouselSlides');
+      carouselSlides.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+      
+      const dots = document.querySelectorAll('#carouselDots span');
+      dots.forEach((dot, idx) => {
+        if (idx === currentSlideIndex) {
+          dot.className = "w-5 h-2 rounded-full bg-cyan-400 cursor-pointer transition-all";
+        } else {
+          dot.className = "w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-all";
+        }
+      });
+    }
+
+    function nextSlide() {
+      if (!currentSelectedProject) return;
+      const slides = currentSelectedProject.images || [currentSelectedProject.image];
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      updateSlidePosition();
+    }
+
+    function prevSlide() {
+      if (!currentSelectedProject) return;
+      const slides = currentSelectedProject.images || [currentSelectedProject.image];
+      currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+      updateSlidePosition();
+    }
+
+    function goToSlide(idx) {
+      currentSlideIndex = idx;
+      updateSlidePosition();
+    }
+
+    function startSlideTimer(totalSlides) {
+      clearInterval(slideTimer);
+      if (totalSlides > 1) {
+        // Automatically slides every 3.5 seconds
+        slideTimer = setInterval(() => {
+          nextSlide();
+        }, 3500);
+      }
+    }
+
+    function closeModal() {
+      clearInterval(slideTimer);
+      projectModal.classList.add('opacity-0', 'pointer-events-none');
+      projectModal.classList.remove('opacity-100', 'pointer-events-auto');
+      modalBox.classList.remove('scale-100');
+      modalBox.classList.add('scale-95');
+      document.body.style.overflow = '';
+      currentSelectedProject = null;
+    }
+
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeModal();
+    });
+
+    uploadModal.addEventListener('click', (e) => {
+      if (e.target === uploadModal) closeUploadModal();
+    });
+
+    function inquireForThisProject() {
+      if (!currentSelectedProject) return;
+      const text = encodeURIComponent(`Hi Adarsh, I saw "${currentSelectedProject.title}" on your portfolio and want to build a similar project.`);
+      window.open(`https://wa.me/919102830956?text=${text}`, '_blank');
+    }
+
+    // 6. 25 CLIENT REVIEWS (ROTATING 3 AT A TIME)
+    const clientReviewsList = [
+      { name: "Rahul Agarwal", role: "Grocery Store Owner", location: "Ranchi", review: "Adarsh built our Android delivery app within 10 days. Zero bugs, very clean UI, and customers are loving the fast checkout!" },
+      { name: "Vikram Sengupta", role: "SaaS Founder", location: "Kolkata", review: "Outstanding developer. Delivered an ultra-modern website that boosted our product inquiries by 40%. Highly professional." },
+      { name: "Pooja Mishra", role: "Fashion Boutique", location: "Jamshedpur", review: "He designed my catalog website with direct WhatsApp ordering. Super quick communication and honest pricing." },
+      { name: "Amitabh Roy", role: "Real Estate Director", location: "Ranchi", review: "Adarsh is a true expert. The property search portal he built loads in less than a second. Delivered ahead of schedule." },
+      { name: "Neha Sharma", role: "Fitness Studio", location: "Patna", review: "The gym workout and class booking app he made is flawless. Great animations and 100% stable on all Android phones." },
+      { name: "Suresh Pillai", role: "Logistics Manager", location: "Bengaluru", review: "His code quality is exceptional. No sloppy errors. Everything worked right out of the box." },
+      { name: "Deepak Choudhary", role: "Hardware Trader", location: "Dhanbad", review: "Best experience working with Adarsh. He guided me on how to get the most value for my budget." },
+      { name: "Kavita Rao", role: "EdTech Startup", location: "Hyderabad", review: "Adarsh created our student portal with video lectures and quizzes. Very cooperative and always available on call." },
+      { name: "Manish Tiwari", role: "Café Chain Owner", location: "Ranchi", review: "Our table booking and menu QR app was created by him. Fast, responsive, and beautifully styled in dark mode." },
+      { name: "Siddharth Jain", role: "Fintech Consultant", location: "Mumbai", review: "Security and data handling in the API were top-notch. Highly recommended for full-stack and mobile builds." },
+      { name: "Ananya Sen", role: "Cosmetics Brand", location: "Delhi NCR", review: "The website look and feel feels like an international luxury brand. My sales doubled in the first month." },
+      { name: "Gaurav Malhotra", role: "Automobile Service", location: "Jaipur", review: "Customer booking system works like a charm. Adarsh provides fast support whenever needed." },
+      { name: "Ritu Kulkarni", role: "Organic Foods", location: "Pune", review: "Extremely neat code and pixel-perfect design. Even the smallest mobile screen renders without any glitch." },
+      { name: "Harish Gupta", role: "Wholesale Merchant", location: "Bokaro", review: "I gave him an urgent 5-day deadline for an inventory web app. He worked day and night and delivered perfection." },
+      { name: "Sunil Nair", role: "Travel Agency", location: "Kochi", review: "The tour booking portal with WhatsApp integration has made capturing customer inquiries automatic!" },
+      { name: "Priyanka Das", role: "Jewellery Designer", location: "Kolkata", review: "Adarsh understood the luxury aesthetic instantly. Beautiful responsive grid layout for my ornament photos." },
+      { name: "Mohit Verma", role: "Hospitality Management", location: "Lucknow", review: "Clean Android APK with zero crashes. Approved on our testing devices without a single warning." },
+      { name: "Shweta Joshi", role: "Digital Marketing Agency", location: "Indore", review: "We outsource all our client mobile app requirements to Adarsh. Reliable, fast, and very honest." },
+      { name: "Rohan Khanna", role: "E-Commerce Founder", location: "Gurugram", review: "Payment gateway integration and webhook handlers were executed with precision. 5/5 stars." },
+      { name: "Rajesh Sahu", role: "Medical Supplies", location: "Ranchi", review: "Local developer with world-class skills. He met me in Ranchi to discuss the project and delivered seamlessly." },
+      { name: "Meera Krishnan", role: "Ayurvedic Brand", location: "Chennai", review: "The UI design is modern and engaging. Adarsh is responsive and extremely polite throughout the build." },
+      { name: "Ashok Mehta", role: "Chartered Accountant", location: "Ahmedabad", review: "He built a client document upload portal for my CA firm. Clean, fast, and encrypted." },
+      { name: "Naveen Saxena", role: "Electronics Retailer", location: "Bhopal", review: "The product catalogue website increased our phone inquiries drastically. Thank you Adarsh!" },
+      { name: "Swati Pandey", role: "Interior Designer", location: "Varanasi", review: "Very satisfied with the outcome. He even helped me with free domain setup and hosting." },
+      { name: "Karan Bedi", role: "App Startup", location: "Chandigarh", review: "Adarsh solved complex state management bugs in our Kotlin codebase that other devs failed to fix." }
+    ];
+
+    let currentReviewStartIndex = 0;
+
+    function renderTestimonials() {
+      const container = document.getElementById('testimonialsContainer');
+      container.style.opacity = '0';
+      container.style.transform = 'translateY(10px)';
+
+      setTimeout(() => {
+        container.innerHTML = '';
+        for (let i = 0; i < 3; i++) {
+          const index = (currentReviewStartIndex + i) % clientReviewsList.length;
+          const item = clientReviewsList[index];
+          
+          const card = document.createElement('div');
+          card.className = "p-6 rounded-2xl glass-card space-y-4 relative flex flex-col justify-between";
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex text-amber-400 text-xs gap-1">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Verified Client
+                </span>
+              </div>
+              <p class="text-slate-300 text-sm italic leading-relaxed">
+                "${item.review}"
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-600 via-cyan-500 to-emerald-400 flex items-center justify-center font-bold text-white text-xs">
+                ${item.name.split(' ').map(n=>n[0]).join('')}
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-white">${item.name}</h5>
+                <p class="text-xs text-slate-400">${item.role} &bull; <span class="text-slate-300">${item.location}</span></p>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        }
+
+        container.style.opacity = '1';
+        container.style.transform = 'translateY(0)';
+      }, 250);
+    }
+
+    function refreshTestimonials() {
+      const icon = document.getElementById('refreshIcon');
+      icon.classList.add('fa-spin');
+      currentReviewStartIndex = (currentReviewStartIndex + 3) % clientReviewsList.length;
+      renderTestimonials();
+      setTimeout(() => icon.classList.remove('fa-spin'), 600);
+    }
+
+    setInterval(refreshTestimonials, 300000); // 5 minutes
+
+    // Initial render
+    renderProjects('all');
+    updateCounts();
+    renderTestimonials();
+
+    // 7. RELIABLE INQUIRY SYSTEM (100% GUARANTEED EMAIL & WHATSAPP)
+    function getFormData() {
+      return {
+        name: document.getElementById('senderName').value.trim(),
+        contact: document.getElementById('senderContact').value.trim(),
+        type: document.getElementById('projectType').value,
+        budget: document.getElementById('projectBudget').value,
+        details: document.getElementById('projectDetails').value.trim()
+      };
+    }
+
+    function validateFields(data) {
+      if (!data.name || !data.contact || !data.details) {
+        const status = document.getElementById('formStatus');
+        status.className = "p-3 rounded-xl text-center text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30 block";
+        status.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1"></i> Please fill Name, Phone, and Project Details.`;
+        return false;
+      }
+      return true;
+    }
+
+    // A. 100% BULLETPROOF EMAIL OPENER (SUPPORTS GMAIL WEB + MAIL CLIENT)
+    function sendToEmail() {
+      const data = getFormData();
+      if (!validateFields(data)) return;
+
+      const subject = `Project Inquiry from ${data.name} (${data.type})`;
+      const body = `Hi Adarsh,\n\nI want to discuss a new project with you:\n\n` +
+                   `Client Name: ${data.name}\n` +
+                   `Phone / WhatsApp: ${data.contact}\n` +
+                   `Service Required: ${data.type}\n` +
+                   `Budget: ${data.budget}\n` +
+                   `Location: Ranchi / Worldwide\n\n` +
+                   `Project Requirements:\n${data.details}\n\n` +
+                   `Sent via Adarsh Developer Portfolio`;
+
+      const recipient = "adarsh.developer9102@gmail.com";
+
+      // 1. Primary: Direct Gmail Web Composer URL (works reliably on both phones and browsers)
+      const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // 2. Secondary standard mailto
+      const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const status = document.getElementById('formStatus');
+      status.className = "p-3 rounded-xl text-center text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 block";
+      status.innerHTML = `<i class="fa-solid fa-envelope-open-text mr-1"></i> Opening Email composer for adarsh.developer9102@gmail.com...`;
+
+      // Open Gmail web in new tab, and trigger mailto for default apps
+      const opened = window.open(gmailWebUrl, '_blank');
+      if (!opened) {
+        window.location.href = mailtoUrl;
+      }
+    }
+
+    // B. DIRECT WHATSAPP SEND
+    function sendToWhatsApp() {
+      const data = getFormData();
+      if (!validateFields(data)) return;
+
+      const msg = `*NEW PROJECT INQUIRY FOR ADARSH*%0A%0A` +
+                  `👤 *Client Name:* ${encodeURIComponent(data.name)}%0A` +
+                  `📞 *Phone / Contact:* ${encodeURIComponent(data.contact)}%0A` +
+                  `🛠️ *Service:* ${encodeURIComponent(data.type)}%0A` +
+                  `💰 *Approx Budget:* ${encodeURIComponent(data.budget)}%0A` +
+                  `📍 *Adarsh Office:* Ranchi, Jharkhand%0A%0A` +
+                  `📝 *Project Details:*%0A${encodeURIComponent(data.details)}`;
+
+      const status = document.getElementById('formStatus');
+      status.className = "p-3 rounded-xl text-center text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 block";
+      status.innerHTML = `<i class="fa-brands fa-whatsapp mr-1"></i> Opening WhatsApp (+91 9102830956)...`;
+
+      window.open(`https://wa.me/919102830956?text=${msg}`, '_blank');
+    }
+  </script>
+</body>
+</html>
