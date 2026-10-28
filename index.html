@@ -1509,6 +1509,54 @@
 
       window.open(`https://wa.me/919102830956?text=${msg}`, '_blank');
     }
+    // --- MY PROJECTS DATA & RENDER ---
+const myProjects = [
+  {
+    title: "Dhoodh Hisaab (दूध हिसाब)",
+    type: "Mobile App",
+    desc: "Daily milk tracking & monthly calculation app with automated bill reminders and delivery logs.",
+    screenshots: [
+      "dhoodh1.png",
+      "dhoodh2.png",
+      "dhoodh3.png",
+      "dhoodh4.png",
+      "dhoodh5.png",
+      "dhoodh6.png",
+      "dhoodh7.png"
+    ],
+    link: "https://drive.google.com/file/d/1fN_ZE-ASCT5lDZ6K1Lb1mA_tr02GX9fH/view?usp=drivesdk"
+  }
+];
+
+// Project rendering function
+function renderCustomProjects() {
+  const container = document.getElementById("projects-container") || document.querySelector(".projects-grid") || document.querySelector("#projects .grid");
+  if (!container || !myProjects.length) return;
+
+  container.innerHTML = myProjects.map((p, pIndex) => `
+    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; margin-bottom: 25px; backdrop-filter: blur(10px);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff; margin: 0;">${p.title}</h3>
+        <span style="background: rgba(34, 197, 94, 0.15); color: #4ade80; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">${p.type}</span>
+      </div>
+      <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">${p.desc}</p>
+      
+      <!-- Screenshots Slider -->
+      <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; margin-bottom: 18px;">
+        ${p.screenshots.map((img) => `
+          <img src="${img}" alt="Screenshot" style="height: 280px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); object-fit: cover; flex-shrink: 0; scroll-snap-align: start; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+        `).join('')}
+      </div>
+
+      <a href="${p.link}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #22c55e; color: #000; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none;">
+        <span>Download / View App</span> ↗
+      </a>
+    </div>
+  `).join('');
+}
+
+document.addEventListener("DOMContentLoaded", renderCustomProjects);
+renderCustomProjects();
   </script>
 </body>
 </html>
