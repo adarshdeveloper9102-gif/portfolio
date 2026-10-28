@@ -50,6 +50,17 @@
   </script>
 
   <style>
+    /* Netlify Badge Force Hide */
+    [data-netlify-deploy-id], 
+    iframe#netlify-drawer, 
+    div[class*="netlify-drawer"],
+    .netlify-badge {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
@@ -67,7 +78,7 @@
 
     /* Glassmorphism Styles */
     .glass-nav {
-      background: rgba(7, 8, 13, 0.82);
+      background: rgba(7, 8, 13, 0.85);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -134,13 +145,11 @@
 
       <!-- Desktop CTA & Contacts -->
       <div class="hidden sm:flex items-center gap-3">
-        <!-- Exact GitHub Profile from your app -->
         <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" title="Adarsh on GitHub (@adarshdeveloper9102-gif)"
            class="w-10 h-10 rounded-xl border border-slate-700/80 bg-cardBg hover:bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-all hover:border-slate-500 shadow-sm">
           <i class="fa-brands fa-github text-lg"></i>
         </a>
 
-        <!-- Quick Book Call / WhatsApp -->
         <a href="tel:+919102830956" 
            title="Direct Phone Call"
            class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-700 bg-cardBg hover:bg-slate-800 text-slate-200 font-medium text-xs sm:text-sm transition-all">
@@ -168,7 +177,6 @@
       <a href="#services" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">Services</a>
       <a href="#testimonials" class="block px-3 py-2 rounded-lg text-slate-200 hover:bg-white/5 font-medium">Client Reviews</a>
 
-      <!-- GitHub & Call Handles on Mobile -->
       <div class="flex items-center gap-3 px-3 py-2">
         <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 text-center rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 hover:text-white flex items-center justify-center gap-2">
           <i class="fa-brands fa-github text-sm"></i> GitHub: adarshdeveloper9102-gif
@@ -206,7 +214,6 @@
               Hey, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">Adarsh</span>
             </h1>
 
-            <!-- Sliding / Typewriter Rotating Headlines -->
             <div class="min-h-[72px] sm:min-h-[84px] flex items-center justify-center lg:justify-start">
               <h2 class="text-xl sm:text-3xl font-heading font-semibold text-slate-200">
                 <span>Specialized in </span>
@@ -219,21 +226,18 @@
               I architect bug-free, high-converting Android applications & modern web solutions. Turn your idea into a production-ready digital product with clean design, lightning speed, and scalable code.
             </p>
 
-            <!-- Action Buttons: Explore Client Work + Book a Free Call -->
             <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold text-sm sm:text-base shadow-xl shadow-indigo-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
                 <i class="fa-solid fa-layer-group"></i>
                 <span>Explore Client Work</span>
               </a>
 
-              <!-- Book a Free Call Button -->
               <a href="tel:+919102830956" class="px-7 py-3.5 rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-semibold text-sm sm:text-base transition-all flex items-center gap-2 shadow-lg shadow-emerald-500/10 hover:scale-[1.02] active:scale-[0.98]">
                 <i class="fa-solid fa-phone-volume text-emerald-400 animate-pulse"></i>
                 <span>Book a Free Call</span>
               </a>
             </div>
 
-            <!-- Profile & Address Highlights -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs text-slate-400">
               <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-600 transition-colors">
                 <i class="fa-brands fa-github text-base text-cyan-400"></i> github.com/adarshdeveloper9102-gif
@@ -243,7 +247,6 @@
               </span>
             </div>
 
-            <!-- Trust Badges & Stats -->
             <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-xl mx-auto lg:mx-0">
               <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-center lg:text-left">
                 <div class="font-heading font-bold text-2xl sm:text-3xl text-emerald-400">100%</div>
@@ -324,7 +327,7 @@
       </div>
     </section>
 
-    <!-- PORTFOLIO SECTION (WITH DIRECT ADD/UPLOAD SYSTEM) -->
+    <!-- PORTFOLIO SECTION -->
     <section id="projects" class="py-24 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -364,19 +367,18 @@
 
         <!-- Dynamic Projects Grid -->
         <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Populated dynamically via JS / LocalStorage -->
+          <!-- Populated dynamically via JS -->
         </div>
 
       </div>
     </section>
 
-    <!-- CLIENT FEEDBACK / REVIEWS (25 REVIEWS, AUTO-REFRESH EVERY 5 MINS + LIVE BLINK) -->
+    <!-- CLIENT FEEDBACK / REVIEWS -->
     <section id="testimonials" class="py-24 bg-cardBg/40 border-y border-slate-800/60 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <!-- Live Green Blink Indicator -->
             <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3">
               <span class="relative flex h-2.5 w-2.5">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80"></span>
@@ -393,7 +395,6 @@
             </p>
           </div>
 
-          <!-- Instant Shuffle Test Button -->
           <div class="flex items-center gap-2">
             <button onclick="refreshTestimonials()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 flex items-center gap-2 transition-all">
               <i class="fa-solid fa-arrows-rotate text-emerald-400" id="refreshIcon"></i>
@@ -402,7 +403,6 @@
           </div>
         </div>
 
-        <!-- 3 Dynamic Review Cards Container -->
         <div id="testimonialsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-transition">
           <!-- Injected via JavaScript -->
         </div>
@@ -494,7 +494,7 @@
           <div class="p-5 rounded-2xl glass-card text-center hover:border-emerald-500/40 transition-all">
             <i class="fa-brands fa-android text-3xl text-emerald-400 mb-2"></i>
             <h4 class="text-sm font-bold text-white">Android Studio</h4>
-            <span class="text-[10px] text-slate-400">Native Apps</span>
+            <span class="text-[10px] text-slate-400">Native Kotlin/Java</span>
           </div>
 
           <div class="p-5 rounded-2xl glass-card text-center hover:border-cyan-500/40 transition-all">
@@ -531,7 +531,7 @@
       </div>
     </section>
 
-    <!-- INQUIRY & CONTACT SECTION (WITH WHATSAPP & AUTO EMAIL DISPATCH) -->
+    <!-- INQUIRY & CONTACT SECTION -->
     <section id="contact" class="py-24 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -651,7 +651,6 @@
                     <div>
                       <label class="block text-xs font-semibold text-slate-300 mb-1.5">Approx. Budget</label>
                       <select id="projectBudget" class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-indigo-500 transition-colors">
-                        <!-- Requested ₹5,000 - ₹10,000 tier added -->
                         <option value="₹5,000 - ₹10,000 (Starter / Basic)">₹5,000 - ₹10,000 (Starter / Basic)</option>
                         <option value="₹10,000 - ₹25,000 (Standard)">₹10,000 - ₹25,000 (Standard)</option>
                         <option value="₹25,000 - ₹60,000 (Advanced)">₹25,000 - ₹60,000 (Advanced)</option>
@@ -665,7 +664,6 @@
                     <textarea id="projectDetails" rows="4" required placeholder="Describe your app/website idea, what features you want, and your deadline..." class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 transition-colors"></textarea>
                   </div>
 
-                  <!-- 2 DIRECT SEND BUTTONS: EMAIL & WHATSAPP -->
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                     <button type="button" onclick="sendToEmail()" class="py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-semibold text-sm hover:opacity-95 shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2">
                       <i class="fa-regular fa-envelope text-base"></i>
@@ -678,7 +676,6 @@
                     </button>
                   </div>
 
-                  <!-- Feedback Alert Box -->
                   <div id="formStatus" class="hidden p-3 rounded-xl text-center text-xs font-semibold"></div>
                 </form>
               </div>
@@ -710,7 +707,6 @@
       </div>
 
       <div class="flex items-center gap-3 text-slate-400">
-        <!-- Direct GitHub Profile Link -->
         <a href="https://github.com/adarshdeveloper9102-gif" target="_blank" rel="noopener noreferrer" title="Adarsh on GitHub" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-white hover:border-slate-600 transition-colors">
           <i class="fa-brands fa-github text-base"></i>
         </a>
@@ -723,8 +719,6 @@
         <a href="mailto:adarsh.developer9102@gmail.com" title="Send Email" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-indigo-400 hover:border-indigo-500/40 transition-colors">
           <i class="fa-regular fa-envelope text-base"></i>
         </a>
-        
-        <!-- Discreet Owner Admin Login (PIN: 9102) -->
         <button onclick="promptOwnerAdmin()" title="Admin Project Manager" class="w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-600 hover:text-amber-400 transition-colors">
           <i class="fa-solid fa-lock text-xs"></i>
         </button>
@@ -739,7 +733,7 @@
   </button>
 
   <!-- ============================================== -->
-  <!-- MODAL 1: OWNER ONLY PROJECT UPLOADER           -->
+  <!-- MODAL: OWNER ONLY PROJECT UPLOADER (PIN: 9102) -->
   <!-- ============================================== -->
   <div id="uploadModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="relative w-full max-w-2xl bg-cardBg border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col" id="uploadModalBox">
@@ -751,7 +745,7 @@
           </div>
           <div>
             <h3 class="font-heading font-bold text-lg text-white">Owner Portal - Add Real Project</h3>
-            <p class="text-[11px] text-slate-400">Authenticated as Adarsh</p>
+            <p class="text-[11px] text-slate-400">Authenticated as Adarsh (PIN Protected)</p>
           </div>
         </div>
         <button onclick="closeUploadModal()" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center">
@@ -760,8 +754,6 @@
       </div>
 
       <form id="projectUploadForm" onsubmit="handleProjectUpload(event)" class="p-6 space-y-4 overflow-y-auto flex-1">
-        
-        <!-- Category Selector (App or Website) -->
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Type *</label>
           <div class="grid grid-cols-2 gap-3">
@@ -771,7 +763,7 @@
                 <div class="text-xs font-bold text-white flex items-center gap-1.5">
                   <i class="fa-brands fa-android text-emerald-400"></i> Mobile App
                 </div>
-                <div class="text-[10px] text-slate-400">APK link, screenshots, video</div>
+                <div class="text-[10px] text-slate-400">APK link, screenshots</div>
               </div>
             </label>
 
@@ -781,49 +773,36 @@
                 <div class="text-xs font-bold text-white flex items-center gap-1.5">
                   <i class="fa-solid fa-globe text-cyan-400"></i> Website / Web App
                 </div>
-                <div class="text-[10px] text-slate-400">Live URL, screenshots, video</div>
+                <div class="text-[10px] text-slate-400">Live URL, screenshots</div>
               </div>
             </label>
           </div>
         </div>
 
-        <!-- Project Title -->
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Name / Title *</label>
-          <input type="text" id="upTitle" required placeholder="e.g. My Grocery App or Restaurant Website" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+          <input type="text" id="upTitle" required placeholder="e.g. Grocery Delivery App" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
         </div>
 
-        <!-- Short Description -->
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1.5">Project Description *</label>
           <textarea id="upDescription" rows="2" required placeholder="Features built, speed optimization, user flows..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500"></textarea>
         </div>
 
-        <!-- Multi-Screenshot Support (Comma Separated URLs or Upload) -->
         <div class="p-3.5 rounded-xl bg-darkBg/60 border border-slate-800/80 space-y-2">
           <label class="block text-xs font-semibold text-slate-200">
-            <i class="fa-regular fa-images text-cyan-400 mr-1"></i> Screenshots (Auto-Slideshow in Modal) *
+            <i class="fa-regular fa-images text-cyan-400 mr-1"></i> Screenshot Filenames (or URLs) *
           </label>
-          <p class="text-[11px] text-slate-400">Upload an image file from your laptop OR paste image URLs (comma separated):</p>
-          <input type="file" id="upImageFile" accept="image/*" class="w-full text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500">
-          <input type="text" id="upImageUrl" placeholder="https://example.com/slide1.jpg, https://example.com/slide2.jpg" class="w-full px-3 py-2 rounded-lg bg-darkBg border border-slate-800 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-500">
+          <p class="text-[11px] text-slate-400">Enter filenames uploaded in GitHub (comma separated):</p>
+          <input type="text" id="upImageUrl" placeholder="dhoodh1.png, dhoodh2.png, dhoodh3.png" class="w-full px-3 py-2 rounded-lg bg-darkBg border border-slate-800 text-white placeholder-slate-600 text-xs focus:outline-none focus:border-cyan-500">
         </div>
 
-        <!-- Video Demo Link -->
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5">
-            <i class="fa-solid fa-video text-rose-400 mr-1"></i> Demo Video URL (Optional)
-          </label>
-          <input type="url" id="upVideoUrl" placeholder="Direct MP4 video URL or YouTube preview link" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
-        </div>
-
-        <!-- Destination Link & GitHub -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label id="upDynamicLinkLabel" class="block text-xs font-semibold text-slate-300 mb-1.5">
               APK / Download Link
             </label>
-            <input type="url" id="upActionUrl" placeholder="https://drive.google.com/... or live site URL" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
+            <input type="url" id="upActionUrl" placeholder="https://drive.google.com/..." class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
           </div>
 
           <div>
@@ -834,7 +813,6 @@
           </div>
         </div>
 
-        <!-- Tech Stack -->
         <div>
           <label class="block text-xs font-semibold text-slate-300 mb-1.5">Tech Stack (comma separated)</label>
           <input type="text" id="upTech" placeholder="e.g. Kotlin, Android Studio, Firebase" class="w-full px-4 py-2.5 rounded-xl bg-darkBg border border-slate-800 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500">
@@ -854,15 +832,16 @@
   </div>
 
   <!-- ============================================== -->
-  <!-- MODAL 2: PROJECT DETAIL & AUTO-SLIDER MODAL    -->
+  <!-- MODAL: PREMIUM PROJECT DETAIL & AUTO-SLIDER    -->
   <!-- ============================================== -->
   <div id="projectModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-    <div class="relative w-full max-w-3xl bg-cardBg border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col" id="modalBox">
+    <div class="relative w-full max-w-4xl bg-cardBg border border-slate-700 rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[92vh] flex flex-col" id="modalBox">
       
-      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-darkBg/70">
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-darkBg/90">
         <div class="flex items-center gap-3">
-          <span id="modalCategoryBadge" class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-            Category
+          <span id="modalCategoryBadge" class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            Mobile App
           </span>
           <h3 id="modalTitle" class="font-heading font-bold text-lg sm:text-xl text-white">Project Title</h3>
         </div>
@@ -871,56 +850,95 @@
         </button>
       </div>
 
+      <!-- Modal Body -->
       <div class="p-6 space-y-6 overflow-y-auto flex-1">
         
-        <!-- AUTO SCREENSHOT SLIDER / CAROUSEL -->
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-slate-800 group">
+        <!-- AUTO SCREENSHOT SLIDER WITH CLICK TO ZOOM LIGHTBOX -->
+        <div class="relative w-full h-80 sm:h-[420px] rounded-2xl overflow-hidden bg-black/90 border border-slate-800 group shadow-2xl flex items-center justify-center">
           <div id="carouselSlides" class="w-full h-full flex transition-transform duration-500 ease-out">
             <!-- Slide images injected dynamically -->
           </div>
 
+          <!-- Click to Zoom Hint Badge -->
+          <div class="absolute top-3 right-3 px-3 py-1 rounded-lg bg-black/70 backdrop-blur-md border border-white/20 text-slate-300 text-[11px] font-medium flex items-center gap-1.5 pointer-events-none">
+            <i class="fa-solid fa-magnifying-glass-plus text-cyan-400"></i> Tap photo to zoom
+          </div>
+
           <!-- Carousel Nav Buttons -->
-          <button onclick="prevSlide()" aria-label="Previous screenshot" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100">
-            <i class="fa-solid fa-chevron-left text-xs"></i>
+          <button onclick="prevSlide(event)" aria-label="Previous screenshot" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 z-10">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
           </button>
-          <button onclick="nextSlide()" aria-label="Next screenshot" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100">
-            <i class="fa-solid fa-chevron-right text-xs"></i>
+          <button onclick="nextSlide(event)" aria-label="Next screenshot" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/70 hover:bg-black/95 text-white flex items-center justify-center border border-white/20 transition-all opacity-0 group-hover:opacity-100 z-10">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
           </button>
 
-          <!-- Carousel Dots / Indicators -->
-          <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/10">
+          <!-- Carousel Dots -->
+          <div id="carouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 z-10">
             <!-- Injected dynamically -->
           </div>
         </div>
 
-        <div>
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Project Details</h4>
+        <!-- Description Box -->
+        <div class="bg-darkBg/60 p-4 rounded-xl border border-slate-800/80">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-info text-cyan-400"></i> Project Overview
+          </h4>
           <p id="modalDescription" class="text-sm text-slate-200 leading-relaxed"></p>
         </div>
 
+        <!-- Tech Stack Used -->
         <div>
-          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Tech Stack</h4>
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+            <i class="fa-solid fa-layer-group text-indigo-400"></i> Technologies & Frameworks
+          </h4>
           <div id="modalTechStack" class="flex flex-wrap gap-2"></div>
         </div>
 
       </div>
 
+      <!-- Modal Footer -->
       <div class="p-4 border-t border-slate-800 bg-darkBg flex flex-wrap items-center justify-between gap-3">
         <div class="text-xs text-slate-400">
-          Interested in building a similar product with Adarsh?
+          Want a similar app or website built by Adarsh?
         </div>
         <div class="flex items-center gap-3">
-          <a id="modalLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold flex items-center gap-2">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            <span id="modalLiveBtnText">Open Link</span>
+          <a id="modalLiveBtn" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-95 text-white text-xs font-bold flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+            <i class="fa-solid fa-download"></i>
+            <span id="modalLiveBtnText">Download APK</span>
           </a>
-          <button onclick="inquireForThisProject()" class="px-4 py-2 rounded-xl border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/10 text-xs font-semibold flex items-center gap-2">
-            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
-            <span>Chat on WhatsApp</span>
+          <button onclick="inquireForThisProject()" class="px-5 py-2.5 rounded-xl border border-indigo-500/40 text-indigo-300 hover:bg-indigo-500/10 text-xs font-semibold flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+            <span>Discuss on WhatsApp</span>
           </button>
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: HD LIGHTBOX / FULLSCREEN PHOTO ZOOM     -->
+  <!-- ============================================== -->
+  <div id="zoomModal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 bg-black/95 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative max-w-full max-h-full flex flex-col items-center justify-center">
+      
+      <!-- Close & Zoom Controls -->
+      <div class="absolute top-3 right-3 flex items-center gap-2 z-50">
+        <button onclick="zoomInImg()" class="w-9 h-9 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-800">
+          <i class="fa-solid fa-plus text-xs"></i>
+        </button>
+        <button onclick="zoomOutImg()" class="w-9 h-9 rounded-full bg-slate-900/80 border border-slate-700 text-white flex items-center justify-center hover:bg-slate-800">
+          <i class="fa-solid fa-minus text-xs"></i>
+        </button>
+        <button onclick="closeZoomModal()" class="w-9 h-9 rounded-full bg-rose-600/80 text-white flex items-center justify-center hover:bg-rose-500">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Full HD Zoomable Image -->
+      <div class="overflow-auto max-h-[85vh] max-w-[95vw] p-2 flex items-center justify-center">
+        <img id="zoomModalImg" src="" alt="Full Screen Zoom" class="max-h-[82vh] w-auto rounded-xl object-contain shadow-2xl transition-transform duration-200 cursor-zoom-in" onclick="toggleZoomStep()">
+      </div>
     </div>
   </div>
 
@@ -991,18 +1009,41 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // 3. ZERO FAKE APPS / WEBSITES (ALL DUMMIES REMOVED)
-    // Only genuine apps added by Adarsh via the secret Owner PIN or code array appear here.
+    // ========================================================
+    // 3. REAL PROJECTS DATASET (PRE-LOADED DHOODH HISAAB)
+    // ========================================================
+    const defaultProjects = [
+      {
+        id: "dhoodh-hisaab",
+        title: "Dhoodh Hisaab (दूध हिसाब)",
+        category: "app",
+        categoryBadge: "Mobile App",
+        description: "Complete daily milk distribution & calculation application for diary merchants and families. Features automated morning/evening logs, monthly billing calculations, customer ledgers, and instant bill generation.",
+        images: [
+          "dhoodh1.png",
+          "dhoodh2.png",
+          "dhoodh3.png",
+          "dhoodh4.png",
+          "dhoodh5.png",
+          "dhoodh6.png",
+          "dhoodh7.png"
+        ],
+        actionUrl: "https://drive.google.com/file/d/1fN_ZE-ASCT5lDZ6K1Lb1mA_tr02GX9fH/view?usp=drivesdk",
+        actionLabel: "Download APK (Google Drive)",
+        githubUrl: "https://github.com/adarshdeveloper9102-gif",
+        tech: ["Android Studio", "Kotlin", "Room Database", "Material 3", "Billing Logic"]
+      }
+    ];
+
     function getStoredProjects() {
       const saved = localStorage.getItem('adarsh_real_projects');
       if (saved) {
         try {
-          return JSON.parse(saved);
-        } catch(e) {
-          return [];
-        }
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        } catch(e) {}
       }
-      return [];
+      return defaultProjects;
     }
 
     let allProjects = getStoredProjects();
@@ -1013,9 +1054,13 @@
     }
 
     function updateCounts() {
-      document.getElementById('countAll').textContent = allProjects.length;
-      document.getElementById('countApps').textContent = allProjects.filter(p => p.category === 'app').length;
-      document.getElementById('countWebsites').textContent = allProjects.filter(p => p.category === 'website').length;
+      const allCount = allProjects.length;
+      const appCount = allProjects.filter(p => p.category === 'app').length;
+      const webCount = allProjects.filter(p => p.category === 'website').length;
+
+      document.getElementById('countAll').textContent = allCount;
+      document.getElementById('countApps').textContent = appCount;
+      document.getElementById('countWebsites').textContent = webCount;
     }
 
     const projectsGrid = document.getElementById('projectsGrid');
@@ -1026,27 +1071,20 @@
         ? allProjects 
         : allProjects.filter(p => p.category === category);
 
-      // Clean, High-Converting Empty Placeholder
       if (list.length === 0) {
         projectsGrid.innerHTML = `
           <div class="col-span-full border border-dashed border-slate-800 rounded-3xl p-10 sm:p-14 text-center bg-cardBg/30">
             <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-3xl text-emerald-400">
               <i class="fa-solid fa-rocket"></i>
             </div>
-            <h4 class="font-heading font-bold text-white text-xl sm:text-2xl">New Client Projects Launching Soon</h4>
+            <h4 class="font-heading font-bold text-white text-xl sm:text-2xl">No Projects in this Category Yet</h4>
             <p class="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto mt-2 mb-6 leading-relaxed">
-              We are currently finalizing private client releases for Android applications and modern websites. Connect directly with Adarsh to get live demos or discuss your project specifications.
+              New verified projects are being added regularly. Connect with Adarsh to build a custom solution for your enterprise.
             </p>
-            <div class="flex flex-wrap items-center justify-center gap-3">
-              <a href="https://wa.me/919102830956?text=Hi%20Adarsh,%20I%20want%20to%20see%20your%20recent%20app%20or%20website%20demos." target="_blank" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-black flex items-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Request Live Demo on WhatsApp</span>
-              </a>
-              <a href="tel:+919102830956" class="px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900 border border-slate-700 hover:border-slate-500 text-white flex items-center gap-2 transition-all">
-                <i class="fa-solid fa-phone text-cyan-400"></i>
-                <span>Call: +91 9102830956</span>
-              </a>
-            </div>
+            <a href="https://wa.me/919102830956?text=Hi%20Adarsh,%20I%20want%20to%20discuss%20a%20project." target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500 hover:bg-emerald-400 text-black shadow-lg shadow-emerald-500/20 transition-all">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>Request Custom Development</span>
+            </a>
           </div>
         `;
         return;
@@ -1054,7 +1092,7 @@
 
       list.forEach(project => {
         const card = document.createElement('div');
-        card.className = "rounded-2xl glass-card overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col";
+        card.className = "rounded-2xl glass-card overflow-hidden group transition-all duration-300 hover:-translate-y-2 flex flex-col border border-slate-800/80 hover:border-indigo-500/50 shadow-xl";
         
         const isApp = project.category === 'app';
         const badgeColor = isApp ? 'text-emerald-400 border-emerald-400/30' : 'text-cyan-400 border-cyan-400/30';
@@ -1062,47 +1100,49 @@
         const coverImage = (project.images && project.images.length > 0) ? project.images[0] : (project.image || '');
 
         card.innerHTML = `
-          <div class="relative overflow-hidden aspect-video bg-slate-900 cursor-pointer" onclick="openModal('${project.id}')">
-            <img src="${coverImage}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/800x500/0c0e17/10b981?text=${encodeURIComponent(project.title)}'">
+          <div class="relative overflow-hidden aspect-[16/10] bg-slate-950 cursor-pointer" onclick="openModal('${project.id}')">
+            <img src="${coverImage}" alt="${project.title}" class="w-full h-full object-cover sm:object-contain p-2 transition-transform duration-500 group-hover:scale-105" loading="lazy" onerror="this.src='https://placehold.co/800x500/0c0e17/10b981?text=${encodeURIComponent(project.title)}'">
             
             <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent opacity-80"></div>
             
             <div class="absolute top-3 left-3 flex items-center gap-2">
-              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-darkBg/90 ${badgeColor} border backdrop-blur-md flex items-center gap-1.5">
+              <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-darkBg/90 ${badgeColor} border backdrop-blur-md flex items-center gap-1.5 shadow-sm">
                 <i class="${icon}"></i> ${project.categoryBadge || (isApp ? 'Mobile App' : 'Website')}
               </span>
-              ${(project.images && project.images.length > 1) ? `<span class="px-2 py-0.5 rounded text-[10px] bg-indigo-600/90 text-white font-bold"><i class="fa-solid fa-images text-[9px] mr-1"></i>${project.images.length} Photos</span>` : ''}
+              ${(project.images && project.images.length > 1) ? `<span class="px-2 py-0.5 rounded text-[10px] bg-indigo-600/90 text-white font-bold backdrop-blur-md"><i class="fa-solid fa-images text-[9px] mr-1"></i>${project.images.length} Photos</span>` : ''}
             </div>
 
-            <div class="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-indigo-600/90 text-white text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">
-              <span>View Screenshots</span>
+            <div class="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-indigo-600 text-white text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-lg">
+              <span>View Details & Slides</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </div>
           </div>
 
-          <div class="p-6 flex-1 flex flex-col justify-between">
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="font-heading font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                ${project.title}
-              </h3>
-              <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="font-heading font-bold text-lg text-white group-hover:text-cyan-400 transition-colors">
+                  ${project.title}
+                </h3>
+              </div>
+              <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed mt-1.5">
                 ${project.description}
               </p>
             </div>
 
             <div>
-              <div class="flex flex-wrap gap-1.5 mb-5">
-                ${(project.tech || []).slice(0, 3).map(t => `<span class="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 font-medium">${t}</span>`).join('')}
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                ${(project.tech || []).slice(0, 4).map(t => `<span class="px-2 py-0.5 rounded text-[10px] bg-slate-900 border border-slate-800 text-slate-300 font-medium">${t}</span>`).join('')}
               </div>
 
               <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between">
                 <button onclick="openModal('${project.id}')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5">
                   <i class="fa-regular fa-eye"></i>
-                  <span>Preview Demo</span>
+                  <span>Inspect App</span>
                 </button>
                 ${project.actionUrl ? `
                   <a href="${project.actionUrl}" target="_blank" rel="noopener" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
-                    <span>${isApp ? 'APK' : 'Live'}</span>
+                    <span>${isApp ? 'Download APK' : 'Live Demo'}</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                   </a>
                 ` : ''}
@@ -1125,7 +1165,9 @@
       renderProjects(cat);
     }
 
-    // 4. OWNER-ONLY ACCESS (PROTECTED WITH PIN: 9102)
+    // ========================================================
+    // 4. OWNER-ONLY ADMIN PORTAL (PIN: 9102)
+    // ========================================================
     const uploadModal = document.getElementById('uploadModal');
     const uploadModalBox = document.getElementById('uploadModalBox');
 
@@ -1169,55 +1211,37 @@
       const title = document.getElementById('upTitle').value.trim();
       const desc = document.getElementById('upDescription').value.trim();
       const category = document.querySelector('input[name="uploadCategory"]:checked').value;
-      const videoUrl = document.getElementById('upVideoUrl').value.trim();
       const actionUrl = document.getElementById('upActionUrl').value.trim();
       const githubUrl = document.getElementById('upGithubUrl').value.trim() || 'https://github.com/adarshdeveloper9102-gif';
       const techInput = document.getElementById('upTech').value.trim();
-      const techList = techInput ? techInput.split(',').map(s => s.trim()) : (category === 'app' ? ['Kotlin', 'Android Studio'] : ['React', 'Web']);
-
-      const fileInput = document.getElementById('upImageFile');
+      const techList = techInput ? techInput.split(',').map(s => s.trim()) : (category === 'app' ? ['Kotlin', 'Android Studio'] : ['React', 'Tailwind']);
       const urlInput = document.getElementById('upImageUrl').value.trim();
 
-      const proceedWithImages = (imagesArray) => {
-        const newProj = {
-          id: 'proj-' + Date.now(),
-          title: title,
-          category: category,
-          categoryBadge: category === 'app' ? 'Mobile App' : 'Website',
-          description: desc,
-          images: imagesArray.length > 0 ? imagesArray : ['https://placehold.co/800x500/0c0e17/10b981?text=' + encodeURIComponent(title)],
-          videoUrl: videoUrl,
-          actionUrl: actionUrl,
-          actionLabel: category === 'app' ? 'Download APK' : 'Visit Website',
-          githubUrl: githubUrl,
-          tech: techList
-        };
+      const imagesArray = urlInput ? urlInput.split(',').map(u => u.trim()).filter(Boolean) : [];
 
-        allProjects.unshift(newProj);
-        saveProjects();
-        renderProjects('all');
-        closeUploadModal();
-        alert('Success! Project published to your portfolio.');
+      const newProj = {
+        id: 'proj-' + Date.now(),
+        title: title,
+        category: category,
+        categoryBadge: category === 'app' ? 'Mobile App' : 'Website',
+        description: desc,
+        images: imagesArray.length > 0 ? imagesArray : ['https://placehold.co/800x500/0c0e17/10b981?text=' + encodeURIComponent(title)],
+        actionUrl: actionUrl,
+        actionLabel: category === 'app' ? 'Download APK' : 'Visit Website',
+        githubUrl: githubUrl,
+        tech: techList
       };
 
-      let imagesArray = [];
-      if (urlInput) {
-        imagesArray = urlInput.split(',').map(u => u.trim()).filter(Boolean);
-      }
-
-      if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          imagesArray.unshift(e.target.result);
-          proceedWithImages(imagesArray);
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-      } else {
-        proceedWithImages(imagesArray);
-      }
+      allProjects.unshift(newProj);
+      saveProjects();
+      renderProjects('all');
+      closeUploadModal();
+      alert('Project added successfully to portfolio!');
     }
 
-    // 5. PROJECT DETAIL & AUTO SCREENSHOT SLIDER MODAL
+    // ========================================================
+    // 5. PROJECT DETAIL & AUTO-SLIDING SCREENSHOT CAROUSEL
+    // ========================================================
     let currentSelectedProject = null;
     let currentSlideIndex = 0;
     let slideTimer = null;
@@ -1242,27 +1266,27 @@
         liveBtn.classList.add('hidden');
       }
 
-      // Tech Stack
+      // Tech Stack Chips
       const techBox = document.getElementById('modalTechStack');
       techBox.innerHTML = (project.tech || []).map(t => `
-        <span class="px-2.5 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-indigo-300 font-medium">
+        <span class="px-3 py-1 rounded-lg text-xs bg-slate-900 border border-slate-700 text-indigo-300 font-semibold shadow-sm">
           ${t}
         </span>
       `).join('');
 
-      // Setup Multi-Screenshot Carousel
-      const slides = (project.images && project.images.length > 0) ? project.images : [project.image || 'https://placehold.co/800x500/0c0e17/10b981?text=' + encodeURIComponent(project.title)];
+      // Build Multi-Screenshot Slides
+      const slides = (project.images && project.images.length > 0) ? project.images : ['https://placehold.co/800x500/0c0e17/10b981?text=' + encodeURIComponent(project.title)];
       const carouselSlides = document.getElementById('carouselSlides');
       const carouselDots = document.getElementById('carouselDots');
       
       carouselSlides.innerHTML = slides.map(src => `
-        <div class="w-full h-full flex-shrink-0">
-          <img src="${src}" class="w-full h-full object-cover">
+        <div class="w-full h-full flex-shrink-0 flex items-center justify-center p-2 cursor-pointer" onclick="openZoomModal('${src}')">
+          <img src="${src}" class="max-h-full max-w-full object-contain rounded-lg transition-transform hover:scale-105" alt="App Screenshot" onerror="this.src='https://placehold.co/800x500/0c0e17/10b981?text=Preview'">
         </div>
       `).join('');
 
       carouselDots.innerHTML = slides.map((_, i) => `
-        <span onclick="goToSlide(${i})" class="w-2 h-2 rounded-full cursor-pointer transition-all ${i === 0 ? 'bg-cyan-400 w-5' : 'bg-white/40'}"></span>
+        <span onclick="goToSlide(${i})" class="h-2 rounded-full cursor-pointer transition-all ${i === 0 ? 'bg-cyan-400 w-5' : 'bg-white/40 w-2'}"></span>
       `).join('');
 
       currentSlideIndex = 0;
@@ -1290,16 +1314,20 @@
       });
     }
 
-    function nextSlide() {
+    function nextSlide(e) {
+      if (e) e.stopPropagation();
       if (!currentSelectedProject) return;
-      const slides = currentSelectedProject.images || [currentSelectedProject.image];
+      const slides = currentSelectedProject.images || [];
+      if (slides.length <= 1) return;
       currentSlideIndex = (currentSlideIndex + 1) % slides.length;
       updateSlidePosition();
     }
 
-    function prevSlide() {
+    function prevSlide(e) {
+      if (e) e.stopPropagation();
       if (!currentSelectedProject) return;
-      const slides = currentSelectedProject.images || [currentSelectedProject.image];
+      const slides = currentSelectedProject.images || [];
+      if (slides.length <= 1) return;
       currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
       updateSlidePosition();
     }
@@ -1312,7 +1340,6 @@
     function startSlideTimer(totalSlides) {
       clearInterval(slideTimer);
       if (totalSlides > 1) {
-        // Automatically slides every 3.5 seconds
         slideTimer = setInterval(() => {
           nextSlide();
         }, 3500);
@@ -1343,7 +1370,56 @@
       window.open(`https://wa.me/919102830956?text=${text}`, '_blank');
     }
 
-    // 6. 25 CLIENT REVIEWS (ROTATING 3 AT A TIME)
+    // ========================================================
+    // 6. FULLSCREEN ZOOM LIGHTBOX SYSTEM
+    // ========================================================
+    const zoomModal = document.getElementById('zoomModal');
+    const zoomModalImg = document.getElementById('zoomModalImg');
+    let currentZoomScale = 1;
+
+    function openZoomModal(imgSrc) {
+      clearInterval(slideTimer);
+      zoomModalImg.src = imgSrc;
+      currentZoomScale = 1;
+      zoomModalImg.style.transform = `scale(${currentZoomScale})`;
+      zoomModal.classList.remove('opacity-0', 'pointer-events-none');
+      zoomModal.classList.add('opacity-100', 'pointer-events-auto');
+    }
+
+    function closeZoomModal() {
+      zoomModal.classList.add('opacity-0', 'pointer-events-none');
+      zoomModal.classList.remove('opacity-100', 'pointer-events-auto');
+      if (currentSelectedProject && currentSelectedProject.images && currentSelectedProject.images.length > 1) {
+        startSlideTimer(currentSelectedProject.images.length);
+      }
+    }
+
+    function zoomInImg() {
+      currentZoomScale = Math.min(currentZoomScale + 0.3, 3);
+      zoomModalImg.style.transform = `scale(${currentZoomScale})`;
+    }
+
+    function zoomOutImg() {
+      currentZoomScale = Math.max(currentZoomScale - 0.3, 0.8);
+      zoomModalImg.style.transform = `scale(${currentZoomScale})`;
+    }
+
+    function toggleZoomStep() {
+      if (currentZoomScale === 1) {
+        currentZoomScale = 1.8;
+      } else {
+        currentZoomScale = 1;
+      }
+      zoomModalImg.style.transform = `scale(${currentZoomScale})`;
+    }
+
+    zoomModal.addEventListener('click', (e) => {
+      if (e.target === zoomModal) closeZoomModal();
+    });
+
+    // ========================================================
+    // 7. 25 CLIENT REVIEWS (ROTATING 3 AT A TIME)
+    // ========================================================
     const clientReviewsList = [
       { name: "Rahul Agarwal", role: "Grocery Store Owner", location: "Ranchi", review: "Adarsh built our Android delivery app within 10 days. Zero bugs, very clean UI, and customers are loving the fast checkout!" },
       { name: "Vikram Sengupta", role: "SaaS Founder", location: "Kolkata", review: "Outstanding developer. Delivered an ultra-modern website that boosted our product inquiries by 40%. Highly professional." },
@@ -1435,7 +1511,9 @@
     updateCounts();
     renderTestimonials();
 
-    // 7. RELIABLE INQUIRY SYSTEM (100% GUARANTEED EMAIL & WHATSAPP)
+    // ========================================================
+    // 8. RELIABLE INQUIRY SYSTEM (EMAIL & WHATSAPP)
+    // ========================================================
     function getFormData() {
       return {
         name: document.getElementById('senderName').value.trim(),
@@ -1456,7 +1534,6 @@
       return true;
     }
 
-    // A. 100% BULLETPROOF EMAIL OPENER (SUPPORTS GMAIL WEB + MAIL CLIENT)
     function sendToEmail() {
       const data = getFormData();
       if (!validateFields(data)) return;
@@ -1472,25 +1549,19 @@
                    `Sent via Adarsh Developer Portfolio`;
 
       const recipient = "adarsh.developer9102@gmail.com";
-
-      // 1. Primary: Direct Gmail Web Composer URL (works reliably on both phones and browsers)
       const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipient)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      // 2. Secondary standard mailto
       const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       const status = document.getElementById('formStatus');
       status.className = "p-3 rounded-xl text-center text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 block";
       status.innerHTML = `<i class="fa-solid fa-envelope-open-text mr-1"></i> Opening Email composer for adarsh.developer9102@gmail.com...`;
 
-      // Open Gmail web in new tab, and trigger mailto for default apps
       const opened = window.open(gmailWebUrl, '_blank');
       if (!opened) {
         window.location.href = mailtoUrl;
       }
     }
 
-    // B. DIRECT WHATSAPP SEND
     function sendToWhatsApp() {
       const data = getFormData();
       if (!validateFields(data)) return;
@@ -1509,54 +1580,6 @@
 
       window.open(`https://wa.me/919102830956?text=${msg}`, '_blank');
     }
-    // --- MY PROJECTS DATA & RENDER ---
-const myProjects = [
-  {
-    title: "Dhoodh Hisaab (दूध हिसाब)",
-    type: "Mobile App",
-    desc: "Daily milk tracking & monthly calculation app with automated bill reminders and delivery logs.",
-    screenshots: [
-      "dhoodh1.png",
-      "dhoodh2.png",
-      "dhoodh3.png",
-      "dhoodh4.png",
-      "dhoodh5.png",
-      "dhoodh6.png",
-      "dhoodh7.png"
-    ],
-    link: "https://drive.google.com/file/d/1fN_ZE-ASCT5lDZ6K1Lb1mA_tr02GX9fH/view?usp=drivesdk"
-  }
-];
-
-// Project rendering function
-function renderCustomProjects() {
-  const container = document.getElementById("projects-container") || document.querySelector(".projects-grid") || document.querySelector("#projects .grid");
-  if (!container || !myProjects.length) return;
-
-  container.innerHTML = myProjects.map((p, pIndex) => `
-    <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; margin-bottom: 25px; backdrop-filter: blur(10px);">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-        <h3 style="font-size: 1.3rem; font-weight: 700; color: #fff; margin: 0;">${p.title}</h3>
-        <span style="background: rgba(34, 197, 94, 0.15); color: #4ade80; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">${p.type}</span>
-      </div>
-      <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">${p.desc}</p>
-      
-      <!-- Screenshots Slider -->
-      <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; scroll-snap-type: x mandatory; margin-bottom: 18px;">
-        ${p.screenshots.map((img) => `
-          <img src="${img}" alt="Screenshot" style="height: 280px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); object-fit: cover; flex-shrink: 0; scroll-snap-align: start; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
-        `).join('')}
-      </div>
-
-      <a href="${p.link}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #22c55e; color: #000; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-decoration: none;">
-        <span>Download / View App</span> ↗
-      </a>
-    </div>
-  `).join('');
-}
-
-document.addEventListener("DOMContentLoaded", renderCustomProjects);
-renderCustomProjects();
   </script>
 </body>
 </html>
